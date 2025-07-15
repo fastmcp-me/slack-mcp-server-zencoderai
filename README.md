@@ -123,11 +123,14 @@ npm install -g @zencoderai/slack-mcp-server
 
 ### Docker Installation
 ```bash
-# Build the Docker image
+# Build the Docker image locally
 docker build -t slack-mcp-server .
 
-# Or pull from registry
-docker pull zencoderai/slack-mcp
+# Or pull from Docker Hub
+docker pull zencoderai/slack-mcp:latest
+
+# Or pull a specific version
+docker pull zencoderai/slack-mcp:1.0.0
 ```
 
 ## Configuration
@@ -207,26 +210,26 @@ AUTH_TOKEN=mytoken node dist/index.js --transport http
 docker run --rm \
   -e SLACK_BOT_TOKEN="xoxb-your-bot-token" \
   -e SLACK_TEAM_ID="your-team-id" \
-  slack-mcp-server
+  zencoderai/slack-mcp:latest
 
 # Run with HTTP transport on port 3000
 docker run --rm -p 3000:3000 \
   -e SLACK_BOT_TOKEN="xoxb-your-bot-token" \
   -e SLACK_TEAM_ID="your-team-id" \
-  slack-mcp-server --transport http
+  zencoderai/slack-mcp:latest --transport http
 
 # Run with HTTP transport on custom port
 docker run --rm -p 8080:8080 \
   -e SLACK_BOT_TOKEN="xoxb-your-bot-token" \
   -e SLACK_TEAM_ID="your-team-id" \
-  slack-mcp-server --transport http --port 8080
+  zencoderai/slack-mcp:latest --transport http --port 8080
 
 # Run with custom auth token
 docker run --rm -p 3000:3000 \
   -e SLACK_BOT_TOKEN="xoxb-your-bot-token" \
   -e SLACK_TEAM_ID="your-team-id" \
   -e AUTH_TOKEN="mytoken" \
-  slack-mcp-server --transport http
+  zencoderai/slack-mcp:latest --transport http
 ```
 
 #### Using Docker Compose
@@ -237,9 +240,10 @@ version: '3.8'
 
 services:
   slack-mcp:
-    build: .
-    # Or use published image:
-    # image: @zencoderai/slack-mcp-server
+    # Use published image:
+    image: zencoderai/slack-mcp:latest
+    # Or build locally:
+    # build: .
     environment:
       - SLACK_BOT_TOKEN=xoxb-your-bot-token
       - SLACK_TEAM_ID=your-team-id
