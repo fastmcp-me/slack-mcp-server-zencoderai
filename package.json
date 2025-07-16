@@ -5,6 +5,10 @@
   "license": "MIT",
   "author": "Zencoder AI (https://zencoder.ai)",
   "homepage": "https://zencoder.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zencoderai/slack-mcp-server"
+  },
   "bugs": "https://github.com/zencoderai/slack-mcp-server/issues",
   "type": "module",
   "bin": {
