@@ -1,6 +1,6 @@
 {
   "name": "@zencoderai/slack-mcp-server",
-  "version": "0.0.1",
+  "version": "0.0.0-dev",
   "description": "MCP server for interacting with Slack",
   "license": "MIT",
   "author": "Zencoder AI (https://zencoder.ai)",
